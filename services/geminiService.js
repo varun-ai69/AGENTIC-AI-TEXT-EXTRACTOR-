@@ -17,7 +17,7 @@ If JSON is requested, return valid JSON only.
 async function callGemini(userPrompt) {
   try {
     const model = client.getGenerativeModel({
-      model: "gemini-3-flash-preview"
+      model: "gemini-2.5-flash-lite"
     });
 
     // Combine system + user prompt (Gemini style)

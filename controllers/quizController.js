@@ -5,6 +5,7 @@ const { generateQuizQuestions } = require("../src/agents/quizGeneratorAgent"); /
 const { validateQuiz } = require("../src/agents/ValidatorAgent"); //Agent - 5
 const { generateAnswers } = require("../src/agents/answerGeneratorAgent"); //Agent - 6
 const { generateExpertExplanation } = require("../src/agents/expertExplanationAgent"); //Agent - 7
+const QuizHistory = require("../models/quizHistory")
 
 async function generateQuiz(req, res) {
   try {
@@ -51,8 +52,24 @@ async function generateQuiz(req, res) {
   quiz
 });
 
+  const chatTitle =
+      hierarchy?.root ||
+      hierarchy?.title ||
+      text.split(" ").slice(0, 6).join(" ");
 
-
+      if (req.user?.id) {
+      await QuizHistory.create({
+        user: req.user.id,
+        title : chatTitle,
+        inputText: text,
+        output: {
+          hierarchy,
+          quiz,
+          answers,
+          explanation
+        }
+      });
+    }
 
  return res.json({
   message: "Learning package generated successfully",

@@ -152,6 +152,30 @@ This enables:
 
 ---
 
+## API Endpoints
+
+### Authentication Routes
+
+| Method | Endpoint             | Description                            |
+| ------ | -------------------- | -------------------------------------- |
+| `POST` | `/api/auth/register` | Register a new user                    |
+| `POST` | `/api/auth/login`    | Authenticate user and return JWT token |
+
+---
+
+###AI Quiz Generation Routes
+
+| Method | Endpoint             | Description                                                   |
+| ------ | -------------------- | ------------------------------------------------------------- |
+| `POST` | `/api/quiz/generate` | Generates quiz, answers, explanations using Agentic AI        |
+| `GET`  | `/api/quiz/chats`    | Fetch all previously generated quizzes for the logged-in user |
+
+> All quiz-related routes are protected using **JWT Authentication**
+
+---
+
+
+
 ## Tech Stack
 
 * **Backend:** Node.js, Express.js

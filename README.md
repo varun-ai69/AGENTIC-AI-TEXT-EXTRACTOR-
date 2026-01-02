@@ -187,6 +187,112 @@ This enables:
 
 ---
 
+## How to Run the Project Locally
+
+Follow the steps below to set up and run the **Agentic AI Text Extractor** on your local machine.
+
+---
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/varun-ai69/AGENTIC-AI-TEXT-EXTRACTOR-.git
+cd AGENTIC-AI-TEXT-EXTRACTOR-
+```
+
+---
+
+### 2. Install Dependencies
+
+Make sure you have **Node.js (v18+)** and **npm** installed.
+
+```bash
+npm install
+```
+
+This will install all required dependencies, including:
+
+```json
+{
+  "@google/generative-ai": "^0.24.1",
+  "bcrypt": "^6.0.0",
+  "dotenv": "^17.2.3",
+  "express": "^5.2.1",
+  "jsonwebtoken": "^9.0.3",
+  "mongoose": "^9.0.2"
+}
+```
+
+---
+
+### 3. Setup Environment Variables
+
+Create a `.env` file in the root directory and add the following:
+
+```env
+PORT=3000
+GEMINI_API_KEY=your_gemini_api_key_here
+MONGO_URL=mongodb://localhost:27017/AGENTIC-AI
+JWT_SECRET=your_jwt_secret_key
+```
+
+ **Notes:**
+
+* Make sure MongoDB is running locally.
+* Use a strong secret for `JWT_SECRET`.
+* Get your Gemini API key from Google AI Studio.
+
+---
+
+### 4. Start the Server
+
+```bash
+npm start
+```
+
+
+---
+
+### 5. Server Running Successfully 
+
+Once started, you should see:
+
+```
+Server running on port 3000
+MongoDB connected successfully
+```
+
+---
+
+### 6. API Usage
+
+Base URL:
+
+```
+http://localhost:3000
+```
+
+Example endpoints:
+
+* `POST /api/auth/register` – User registration
+* `POST /api/auth/login` – User login
+* `POST /api/quiz/generate` – Generate quiz using Agentic AI
+* `GET  /api/quiz/chats` – Fetch previous generated sessions
+
+All protected routes require:
+
+```
+Authorization: Bearer <JWT_TOKEN>
+```
+
+---
+
+### You're Ready to Go!
+
+Your **Agentic AI Text Extraction & Quiz Generation System** is now running locally 
+You can connect it with frontend, Postman, or any API client.
+
+---
 ## Future Scope & Enhancements
 
 ### 1. Adaptive Learning Engine
